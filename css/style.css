@@ -1,19 +1,24 @@
+* {
+    box-sizing: border-box;
+}
 body {
     font-family: 'arial', sans-serif;
     background: #eee;
 }
 
 h1 {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #333;
+    font-weight: normal;
+    margin-top: 0;
 }
 
 div#wrap {
     position: absolute;
     left: 0;
     right: 0;
-    top: 25px;
-    padding-left: 25px;
-    padding-right: 25px;
+    top: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 div#left {
@@ -32,44 +37,112 @@ div#tests {
 
 div#tests h2 {
     margin: 0;
+    padding-left: 8px;
     font-size: 18px;
     font-weight: normal;
-    padding: 2px;
     color: #eee;
     background: #666;
-
+    position: relative;
+    height: 25px;
+    line-height: 25px;
+    text-shadow: 0px 1px black;
 }
 
 div#snippet {
+}
+
+/*.test {
+    position: relative;
     margin-top: 4px;
+}*/
+
+.testlist {
+    background-color: white;
+    /*padding-top: 4px;*/
+    /*padding-bottom: 16px;*/
+}
+
+.test-grade {
+    float: right;
+}
+
+.test-grade:before {
+    content: "[";
+}
+
+.test-grade:after {
+    content: "%]";
+}
+
+.test-grade-bad {
+    color: #E6532E;
+}
+
+.test-grade-okay {
+    color: #FF7519
+}
+
+.test-grade-good {
+    color: #009933;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+#test-snippet-value {
+    position: absolute;
+    left: 75%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+}
+
+#whitelist {
+    
 }
 
 .test {
-    position: relative;
-    margin-top: 4px;
+    list-style-type: none;
+}
+
+.test:nth-child(odd) {
+    /*margin-top: 4px;*/
+    background-color: #eee;
+}
+
+.test.first {
+    margin-top: 0;
 }
 
 .test-key {
-
-}
-
-.test-key:after {
-    content: ":  ";
+    font-family: Consolas, monospace;
+    font-weight: bold;
+    color: #333;
 }
 
 .test-value {
+    display: inline-block;
+    width: 40px;
+    margin-right: 5px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px black;
 }
 
 .test-value-pass {
-    color: green;
+    background-color: #009933;
 }
 
 .test-value-fail {
-    color: red;
+    background-color: #E6532E;
 }
 
 .test-value-loading {
-    color: #666;
+    background-color: #999;
 }
 
 

@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <script src="jquery-1.11.1.min.js"></script>
-    <script src="codemirror/codemirror.js"></script>
-    <script src="codemirror/javascript.js"></script>
-    <script src="esprima.js"></script>
-    <script src="challenger.js"></script>
+    <script src="lib/jquery-1.11.1.min.js"></script>
+    <script src="lib/codemirror/codemirror.js"></script>
+    <script src="lib/codemirror/javascript.js"></script>
+    <script src="lib/esprima.js"></script>
+    <script src="lib/challenger.js"></script>
+    <script src="testView.js"></script>
     <script src="app.js"></script>
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="codemirror/codemirror.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/codemirror.css">
     <title>Challenge Framework</title>
 </head>
 <body>
@@ -20,27 +21,30 @@
         <div id="code"></div>
     </div>
     <div id="right">
-        <h1>Tests</h1> 
+        <h1>Tests <span class="test-grade"></span></h1> 
         <div id="tests">
-            <span class="test-valid">
-                Code is <span class="test-value" id="test-valid-value"></span>.
-            </span>
             <h2>WHITELIST</h2>
-            <div id="whitelist">
+            <div class="testlist">
+                <ul id="whitelist">
+
+                </ul>
             </div>
             <h2>BLACKLIST</h2>
-            <div id="blacklist">
+            <div class="testlist">
+                <ul id="blacklist">
+
+                </ul>
             </div>
-            <h2>SNIPPET <span class="test-value" id="test-snippet-value"></span></h2>
-            <div id="snippet">
-            </div>
+            <h2>SNIPPET <span  id="test-snippet-value"></span></h2>
+                <div id="snippet"></div>
         </div>
     </div>
 </div>
-<script type="text/javascript" id="snippet_example">
+<script type="text/x-javascript-snippet" id="snippet_code">
 // A variable declaration within an if statement:
 if(true) {
     var someVariable = 'someValue';
+    console.log('boo!');
 }
 </script>
 </body>
