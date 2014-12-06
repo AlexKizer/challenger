@@ -1,40 +1,47 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
     <script src="jquery-1.11.1.min.js"></script>
-    <script src="challenger.js"></script>
+    <script src="codemirror/codemirror.js"></script>
+    <script src="codemirror/javascript.js"></script>
     <script src="esprima.js"></script>
+    <script src="challenger.js"></script>
     <script src="app.js"></script>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="codemirror/codemirror.css">
+    <title>Challenge Framework</title>
 </head>
 <body>
-    <script type="text/javascript" id="test_one">
-    // this code should match with snippet_one, but not with snippet_two
-    function test (foo, bar) {
-        var a = foo + bar;
-        for (var i = 0; i < 100; i++) {
-            a += i;
-            if (a !== 'foo' ) {
-            
-            }
-        }
-        return a;
-    }
-    while (false) {}
-    </script>
-    <script type="text/javascript" id="snippet_one">
-    // an if statement inside of a for loop
-    for (var x = 3; x < 6; x += 2) {
-        if (x === 5) {
-
-        }
-    }
-    </script>
-    <script type="text/javascript" id="snippet_two">
-    // a while loop inside of a for loop
-    for (var i = 0; i < 10; i++) {
-        while (i === -1) {
-
-        }
-    }
-    </script>
+<div id="wrap">
+    <div id="left">
+        <h1>Code</h1>
+        <div id="code"></div>
+    </div>
+    <div id="right">
+        <h1>Tests</h1> 
+        <div id="tests">
+            <span class="test-valid">
+                Code is <span class="test-value" id="test-valid-value"></span>.
+            </span>
+            <h2>WHITELIST</h2>
+            <div id="whitelist">
+            </div>
+            <h2>BLACKLIST</h2>
+            <div id="blacklist">
+            </div>
+            <h2>SNIPPET <span class="test-value" id="test-snippet-value"></span></h2>
+            <div id="snippet">
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" id="snippet_example">
+// A variable declaration within an if statement:
+if(true) {
+    var someVariable = 'someValue';
+}
+</script>
 </body>
 </html>

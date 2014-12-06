@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>challenger unit tests</title>
+  <link rel="stylesheet" href="qunit-1.16.0.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script type="text/javascript" src="../lib/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="../lib/esprima.js"></script>
+  <script type="text/javascript" src="../lib/challenger.js"></script>
+  <script type="text/javascript" src="qunit-1.16.0.js"></script>
+  <script src="tests.js"></script>
+  <script type="text/javascript" id="sample_code_one">
+    function main () {
+        function main_0 () {
+            function main_1 () {
+                ;
+                {
+                };
+                3 + 4;
+                if (true) {}
+                switch (true) {
+                    case '':
+                        break;
+                    default:
+                        break;
+                }
+                for (var i = 0; i < 10; i++) {
+                    if (i % 3 == 0) {
+                        continue;
+                    } else if (i % 5 == 0) {
+                        throw 1;
+                    } else {
+                        return;
+                    }
+                    with ({}) {}
+                }
+                try {
+                } catch (e) {
+                    this.a = 'foo';
+                }
+                while (false) {
+                    var x = 'd';
+                }
+                do {
+
+                } while (false);
+                for (var x in {}) {};
+                var x = [];
+                x++;
+                x--;
+                x = x ? 3 : 5;
+                x = new String();
+                x = function () {}
+                x();
+            }
+        }
+    }
+  </script>
+  <script type="text/javascript" id="sample_code_two">
+  function foo () {
+  
+  }
+  </script>
+  <script type="text/javascript" id="sample_code_three">
+  var j = 3;
+  var q = 'r';
+
+  if(j == q) {
+
+  }
+
+  function a () {}
+
+  function bar () {
+    while (false) {
+        var j = 3;
+        var q = 8;
+        if (j < q) {
+            return 5;
+        }
+    }
+  }
+  </script>
+  <script type="text/javascript" id="sample_code_evil">
+  // complicated AST. Should contain snippet_two.
+  function evil () {
+    return (function () {
+        switch(false) {
+            case true:
+                return [function () {
+                    while(false == true) {
+                        return (function () {
+                            while(false) {
+                                var b = 'foo';
+                            }
+                        })();
+                    }
+                }, 'foo'];
+                break;
+            default:
+                break;
+        }
+    })();
+  }
+  </script>
+  <script type="text/javascript" id="snippet_one">
+  // a variable declaration inside of a while loop.
+  // this snippet should match sample_code_one and sample_code_three
+  while (false) {
+    var q = 'r';
+  }
+  </script>
+  <script type="text/javascript" id="snippet_two">
+  // a function declaration, with a while loop inside, with two variable declartions inside that while loop, followed by an if statement with a return inside
+  // this snippet should match sample_code_three
+  function blah () {
+    while (3 == 5) {
+        var aVariable = 'someValue';
+        var anotherVariable = 'anotherValue';
+        if (aVariable == anotherVariable) {
+            return 3;
+        }
+    }
+  }
+  </script>
+</body>
+</html>

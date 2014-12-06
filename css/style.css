@@ -1,0 +1,75 @@
+body {
+    font-family: 'arial', sans-serif;
+    background: #eee;
+}
+
+h1 {
+    border-bottom: 1px solid black;
+}
+
+div#wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+div#left {
+    float: left;
+    width: 60%;
+}
+
+div#right {
+    float: right;
+    width: 30%;
+}
+
+div#tests {
+    overflow: hidden;
+}
+
+div#tests h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+    padding: 2px;
+    color: #eee;
+    background: #666;
+
+}
+
+div#snippet {
+    margin-top: 4px;
+}
+
+.test {
+    position: relative;
+    margin-top: 4px;
+}
+
+.test-key {
+
+}
+
+.test-key:after {
+    content: ":  ";
+}
+
+.test-value {
+}
+
+.test-value-pass {
+    color: green;
+}
+
+.test-value-fail {
+    color: red;
+}
+
+.test-value-loading {
+    color: #666;
+}
+
+
