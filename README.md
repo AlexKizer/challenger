@@ -5,9 +5,8 @@ Open `index.html` for a demo!
     challenger.checkWhitelist(codeString, whitelist);
     challenger.checkBlacklist(codeString, blacklist);
     challenger.checkSnippets(codeString, snippets);
-Where `codeString` is a string of JavaScript code, and 
-    * `whitelist`/`blacklist` are arrays of string from the statement vocabulary list below
-    * `snippets` is an array of JavaScript code snippets (see below)
+Where `codeString` is a string of JavaScript code, `whitelist`/`blacklist` are arrays of string from the statement vocabulary list below, 
+and `snippets` is an array of JavaScript code snippets (see below)
 
 ## statement vocabulary
 The following statements have been tested to work:
