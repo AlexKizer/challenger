@@ -25,6 +25,7 @@ The following statements have been tested to work:
 * 'ForInStatement'
 * 'FunctionDeclaration'
 * 'VariableDeclaration'
+
 ## test format
 Whitelists/blacklists are arrays of strings that are in the above list.
 
