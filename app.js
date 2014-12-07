@@ -1,14 +1,14 @@
 $(document).ready(function () {
     // Try to use the test attached to window.challenge if it exits; otherwise, fall 
     // back to a default challenge.
-    var whitelist = /*window.challenge ? challenge.whitelist :*/ ['ForStatement', 'IfStatement', 'FunctionDeclaration'];
-    var blacklist = /*window.challenge ? challenge.blacklist :*/ ['ForStatement'];
-    var snippet = $('#snippet_code').text()//.trim(); // get snippet code
-    var snippets = [];
-    var codeEditor;
-    var snippetEditor;
-    var testResultsView;
-    var challengeAPI;
+    var whitelist = window.challenge ? challenge.whitelist : ['ForStatement', 'IfStatement', 'FunctionDeclaration'],
+    blacklist = window.challenge ? challenge.blacklist : ['ForStatement'],
+    snippet = $('#snippet_code').text(),//.trim(); // get snippet code
+    snippets = [],
+    codeEditor,
+    snippetEditor,
+    testResultsView,
+    challengeAPI;
 
     snippets.push(snippet); // Although we could test multiple snippets, we will only test one.
     
