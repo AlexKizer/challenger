@@ -5,8 +5,8 @@ Open `index.html` for a demo!
     challenger.checkWhitelist(codeString, whitelist);
     challenger.checkBlacklist(codeString, blacklist);
     challenger.checkSnippets(codeString, snippets);
-Where `codeString` is a string of JavaScript code, `whitelist`/`blacklist` are arrays of string from the statement vocabulary list below, 
-and `snippets` is an array of JavaScript code snippets (see below)
+Where `codeString` is a string of JavaScript code, `whitelist`/`blacklist` are arrays of strings from the statement vocabulary list below, 
+and `snippets` is an array of JavaScript code snippets (see snippets section below).
 
 ## statement vocabulary
 The following statements have been tested to work:
@@ -27,6 +27,8 @@ The following statements have been tested to work:
 * 'ForInStatement'
 * 'FunctionDeclaration'
 * 'VariableDeclaration'
+
+This follows from this [API](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API).
 
 ## snippets
 Snippets represent generic 'sub-trees' of an AST. We can test if a given AST contains the sub-tree
