@@ -1,14 +1,14 @@
 $(document).ready(function () {
     // Try to use the test attached to window.challenge if it exits; otherwise, fall 
     // back to a default challenge.
-    var whitelist = /*window.challenge ? challenge.whitelist :*/ ['ForStatement', 'IfStatement', 'FunctionDeclaration'];
-    var blacklist = /*window.challenge ? challenge.blacklist :*/ ['ForStatement'];
-    var snippet = $('#snippet_code').text()//.trim(); // get snippet code
-    var snippets = [];
-    var codeEditor;
-    var snippetEditor;
-    var testResultsView;
-    var challengeAPI;
+    var whitelist = window.challenge ? challenge.whitelist : ['ForStatement', 'IfStatement', 'FunctionDeclaration'],
+        blacklist = window.challenge ? challenge.blacklist : ['WhileStatement'],
+        snippet = $('#snippet_code').text().trim(), // get snippet code
+        snippets = [],
+        codeEditor,
+        snippetEditor,
+        testResultsView,
+        challengeAPI;
 
     snippets.push(snippet); // Although we could test multiple snippets, we will only test one.
     
@@ -29,7 +29,23 @@ $(document).ready(function () {
 
     testResultsView = makeTestView($('#right'), snippetEditor); // Create the test results view.
 
-    challengeAPI = challenger(esprima); // Initialize the testing API.
+    challengeAPI = challengeWorker();
+
+    challengeAPI.on('whitelist', function (data) {
+        testResultsView.setWhitelistResults(data);
+        testResultsView.computeGrade();
+    });
+
+    challengeAPI.on('blacklist', function (data) {
+        console.log(data);
+        testResultsView.setBlacklistResults(data);
+        testResultsView.computeGrade();
+    });
+
+    challengeAPI.on('snippets', function (data) {
+        testResultsView.setSnippetResults(data);
+        testResultsView.computeGrade();
+    });
 
     // Initialize the test results view:
     testResultsView.initWhitelist(whitelist); 
@@ -50,11 +66,9 @@ $(document).ready(function () {
 
     function checkCode(code) {
         testResultsView.setLoading(); // Display loading indicators.
-        testResultsView.setValid(challengeAPI.checkIsValid(code)) // Is the code valid?
-        testResultsView.setWhitelistResults(challengeAPI.checkWhitelist(code, whitelist)); // Does code pass whitelist test?
-        testResultsView.setBlacklistResults(challengeAPI.checkBlacklist(code, blacklist)); // Does code pass blacklist test?
-        testResultsView.setSnippetResults(challengeAPI.checkSnippets(code, snippets)); // Does code contain snippet?
-        testResultsView.computeGrade();
+        challengeAPI.checkWhitelist(code, whitelist);
+        challengeAPI.checkBlacklist(code, blacklist);
+        challengeAPI.checkSnippets(code, snippets);
     }
 
     // Check code initially:
