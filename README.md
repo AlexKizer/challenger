@@ -30,5 +30,5 @@ The following statements have been tested to work:
 Whitelists/blacklists are arrays of strings that are in the above list.
 
 Snippets represent generic 'sub-trees' of an AST. They are represented with regular JavaScript. However,
-they are parsed into an AST and specifics (variable name
+they are parsed into an AST and specifics (variable names, certain expressions) are ignored.
 
