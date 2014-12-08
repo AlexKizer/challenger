@@ -13,7 +13,9 @@
   <script type="text/javascript" src="../lib/challenger.js"></script>
   <script type="text/javascript" src="qunit-1.16.0.js"></script>
   <script src="tests.js"></script>
-  <pre id="sample_code_one">
+
+  <!-- This would have been a script tag, but IE8 wouldn't let me retrieve inner text -->
+  <pre style="display: none;" id="sample_code_one">
     function main () {
         function main_0 () {
             function main_1 () {
@@ -60,12 +62,12 @@
         }
     }
   </pre>
-  <pre id="sample_code_two">
+  <pre style="display: none" id="sample_code_two">
   function foo () {
   
   }
   </pre>
-  <pre id="sample_code_three">
+  <pre style="display: none" id="sample_code_three">
   var j = 3;
   var q = 'r';
 
@@ -85,7 +87,7 @@
     }
   }
   </pre>
-  <pre id="sample_code_evil">
+  <pre style="display: none" id="sample_code_evil">
   // complicated AST. Should contain snippet_two.
   function evil () {
     return (function () {
@@ -107,14 +109,14 @@
     })();
   }
   </pre>
-  <pre id="snippet_one">
+  <pre style="display: none" id="snippet_one">
   // a variable declaration inside of a while loop.
   // this snippet should match sample_code_one and sample_code_three
   while (false) {
     var q = 'r';
   }
   </pre>
-  <pre id="snippet_two">
+  <pre style="display: none" id="snippet_two">
   // a function declaration, with a while loop inside, with two variable declartions inside that while loop, followed by an if statement with a return inside
   // this snippet should match sample_code_three
   function blah () {
