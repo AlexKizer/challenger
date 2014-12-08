@@ -1,4 +1,4 @@
-# challenger
+# challenge framework
 Open `index.html` for a demo!
 
 ## usage
