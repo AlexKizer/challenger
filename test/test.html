@@ -13,7 +13,7 @@
   <script type="text/javascript" src="../lib/challenger.js"></script>
   <script type="text/javascript" src="qunit-1.16.0.js"></script>
   <script src="tests.js"></script>
-  <script type="text/javascript" id="sample_code_one">
+  <div type="text/javascript" id="sample_code_one">
     function main () {
         function main_0 () {
             function main_1 () {
@@ -59,13 +59,13 @@
             }
         }
     }
-  </script>
-  <script type="text/javascript" id="sample_code_two">
+  </div>
+  <div type="text/javascript" id="sample_code_two">
   function foo () {
   
   }
-  </script>
-  <script type="text/javascript" id="sample_code_three">
+  </div>
+  <div type="text/javascript" id="sample_code_three">
   var j = 3;
   var q = 'r';
 
@@ -84,8 +84,8 @@
         }
     }
   }
-  </script>
-  <script type="text/javascript" id="sample_code_evil">
+  </div>
+  <div type="text/javascript" id="sample_code_evil">
   // complicated AST. Should contain snippet_two.
   function evil () {
     return (function () {
@@ -106,15 +106,15 @@
         }
     })();
   }
-  </script>
-  <script type="text/javascript" id="snippet_one">
+  </div>
+  <div type="text/javascript" id="snippet_one">
   // a variable declaration inside of a while loop.
   // this snippet should match sample_code_one and sample_code_three
   while (false) {
     var q = 'r';
   }
-  </script>
-  <script type="text/javascript" id="snippet_two">
+  </div>
+  <div type="text/javascript" id="snippet_two">
   // a function declaration, with a while loop inside, with two variable declartions inside that while loop, followed by an if statement with a return inside
   // this snippet should match sample_code_three
   function blah () {
@@ -126,6 +126,6 @@
         }
     }
   }
-  </script>
+  </div>
 </body>
 </html>
