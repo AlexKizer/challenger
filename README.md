@@ -28,7 +28,7 @@ The following statements have been tested to work:
 * 'FunctionDeclaration'
 * 'VariableDeclaration'
 
-This follows from this [API](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API).
+List follows from this [API](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API).
 
 ## snippets
 Snippets represent generic 'sub-trees' of an AST. We can test if a given AST contains the sub-tree
