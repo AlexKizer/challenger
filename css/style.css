@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
 }
+
 body {
     font-family: 'arial', sans-serif;
     background: #eee;
@@ -10,6 +11,7 @@ h1 {
     border-bottom: 1px solid #333;
     font-weight: normal;
     margin-top: 0;
+    position: relative;
 }
 
 div#wrap {
@@ -35,7 +37,7 @@ div#tests {
     overflow: hidden;
 }
 
-div#tests h2 {
+.testh {
     margin: 0;
     padding-left: 8px;
     font-size: 18px;
@@ -62,27 +64,29 @@ div#snippet {
     /*padding-bottom: 16px;*/
 }
 
-.test-grade {
-    float: right;
+.testgrade {
+    /*float: right;*/
+    position: absolute;
+    right: 0;
 }
 
-.test-grade:before {
+.testgrade:before {
     content: "[";
 }
 
-.test-grade:after {
+.testgrade:after {
     content: "%]";
 }
 
-.test-grade-bad {
+.testgrade-bad {
     color: #E6532E;
 }
 
-.test-grade-okay {
+.testgrade-okay {
     color: #FF7519
 }
 
-.test-grade-good {
+.testgrade-good {
     color: #009933;
 }
 

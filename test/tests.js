@@ -10,7 +10,6 @@ QUnit.test('containsNode', function (assert) {
                       'ForStatement', 'ForInStatement', 'FunctionDeclaration', 'VariableDeclaration'];
     var astOne = esprima.parse(sampleCodeOne),
         astTwo = esprima.parse(sampleCodeTwo);
-    console.dir(astOne);
     for (var i = 0; i < statements.length; i++) {
         assert.ok(ch.containsNode(astOne, statements[i]), 'astOne contains ' + statements[i]);
     }
@@ -66,19 +65,19 @@ QUnit.test('checkSnippets', function (assert) {
         ch = challenger(esprima),
         snippets = [];
     snippets.push(snippetOne);
-    assert.ok(ch.checkSnippets(sampleCodeOne, snippets), 'sampleCodeOne contains snippetOne');
-    assert.ok(!ch.checkSnippets(sampleCodeTwo, snippets), 'sampleCodeTwo does not contain snippetOne');
-    assert.ok(ch.checkSnippets(sampleCodeThree, snippets), 'sampleCodeThree contains snippetOne');
+    assert.ok(ch.checkSnippets(sampleCodeOne, snippets)[0], 'sampleCodeOne contains snippetOne');
+    assert.ok(!ch.checkSnippets(sampleCodeTwo, snippets)[0], 'sampleCodeTwo does not contain snippetOne');
+    assert.ok(ch.checkSnippets(sampleCodeThree, snippets)[0], 'sampleCodeThree contains snippetOne');
     snippets = [];
     snippets.push(snippetTwo);
-    assert.ok(!ch.checkSnippets(sampleCodeOne, snippets), 'sampleCodeOne does not contain snippetTwo');
-    assert.ok(!ch.checkSnippets(sampleCodeTwo, snippets), 'sampleCodeTwo does not contain snippetTwo');
-    assert.ok(ch.checkSnippets(sampleCodeThree, snippets), 'sampleCodeThree contains snippetTwo');
+    assert.ok(!ch.checkSnippets(sampleCodeOne, snippets)[0], 'sampleCodeOne does not contain snippetTwo');
+    assert.ok(!ch.checkSnippets(sampleCodeTwo, snippets)[0], 'sampleCodeTwo does not contain snippetTwo');
+    assert.ok(ch.checkSnippets(sampleCodeThree, snippets)[0], 'sampleCodeThree contains snippetTwo');
 
     snippets = [];
     snippets.push(snippetOne);
-    assert.ok(ch.checkSnippets(sampleCodeEvil, snippets), 'sampleCodeEvil contains snippetOne');
+    assert.ok(ch.checkSnippets(sampleCodeEvil, snippets)[0], 'sampleCodeEvil contains snippetOne');
     snippets = [];
     snippets.push(snippetTwo);
-    assert.ok(!ch.checkSnippets(sampleCodeEvil, snippets), 'sampleCodeEvil does not contain snippetTwo');
+    assert.ok(!ch.checkSnippets(sampleCodeEvil, snippets)[0], 'sampleCodeEvil does not contain snippetTwo');
 });

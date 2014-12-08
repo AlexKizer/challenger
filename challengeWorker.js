@@ -62,8 +62,6 @@ window.challengeWorker = function () {
     };
 
     function onMessage (event) {
-        console.log('worker message');
-        console.log(event);
         var data = event.data;
         if(data.type === 'whitelist') {
             fire(data.value, listeners.whitelist);

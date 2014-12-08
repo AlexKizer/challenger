@@ -2,19 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+
     <script src="lib/jquery-1.11.1.min.js"></script>
     <script src="lib/codemirror/codemirror.js"></script>
     <script src="lib/codemirror/javascript.js"></script>
     <script src="lib/esprima.js"></script>
     <script src="sampleTest_1.js"></script>                 <!-- include another test here, if desired -->
-    <script src="lib/challenger.js"></script>               <!-- uncomment for synchronous version -->
-    <!-- <script src="challengeWorker.js"></script> -->     <!-- uncomment for web worker version -->
     <script src="testView.js"></script>
-    <script src="app.js"></script>                          <!-- uncomment for synchronous version -->
-    <!-- <script src="appWithWorker.js"></script> -->       <!-- uncomment for web worker version -->
+    <!--<script src="challengeWorker.js"></script>          <!-- uncomment for web worker version -->
+    <!--<script src="appWithWorker.js"></script>            <!-- uncomment for web worker version -->
+    <script src="lib/challenger.js"></script>
+    <script src="app.js"></script>
+
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/codemirror.css">
+
     <title>Challenge Framework</title>
 </head>
 <body>
@@ -24,27 +27,27 @@
         <div id="code"></div>
     </div>
     <div id="right">
-        <h1>Tests <span class="test-grade"></span></h1> 
+        <h1>Tests <span class="testgrade"></span></h1>
         <div id="tests">
-            <h2>WHITELIST</h2>
+            <h2 class="testh">WHITELIST</h2>
             <div class="testlist">
                 <ul id="whitelist"></ul>
             </div>
-            <h2>BLACKLIST</h2>
+            <h2 class="testh">BLACKLIST</h2>
             <div class="testlist">
                 <ul id="blacklist"></ul>
             </div>
-            <h2>SNIPPET <span  id="test-snippet-value"></span></h2>
+            <h2 class="testh">SNIPPET <span id="test-snippet-value"></span></h2>
             <div id="snippet"></div>
         </div>
     </div>
 </div>
 <div id="snippet_code_ie" style="display: none;">
-// A variable declaration within
-// an if statement
-if(true || false) {
+    // A variable declaration within
+    // an if statement
+    if(true || false) {
     var someVariable = 'someValue';
-}
+    }
 </div>
 <script type="text/x-javascript-snippet" id="snippet_code">
 // A variable declaration within
@@ -52,6 +55,7 @@ if(true || false) {
 if(true || false) {
     var someVariable = 'someValue';
 }
+
 </script>
 <script type="text/x-javascript-snippet" id="snippet_nest">
 // A nest of three while loops.
@@ -62,6 +66,7 @@ while (false) {
         }
     }
 }
+
 </script>
 </body>
 </html>

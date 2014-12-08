@@ -2,13 +2,13 @@ $(document).ready(function () {
     // Try to use the test attached to window.challenge if it exits; otherwise, fall 
     // back to a default challenge.
     var whitelist = window.challenge ? challenge.whitelist : ['ForStatement', 'IfStatement', 'FunctionDeclaration'],
-    blacklist = window.challenge ? challenge.blacklist : ['ForStatement'],
-    snippet = $('#snippet_code').text(),//.trim(); // get snippet code
-    snippets = [],
-    codeEditor,
-    snippetEditor,
-    testResultsView,
-    challengeAPI;
+        blacklist = window.challenge ? challenge.blacklist : ['WhileStatement'],
+        snippet = $('#snippet_code').text(),//.trim(); // get snippet code
+        snippets = [],
+        codeEditor,
+        snippetEditor,
+        testResultsView,
+        challengeAPI;
 
     snippets.push(snippet); // Although we could test multiple snippets, we will only test one.
     
@@ -19,7 +19,7 @@ $(document).ready(function () {
         value: '// Write code below to pass the tests to the right.\n'
     });
 
-    // Initliaze another CodeMirror instance; this will contain
+    // Initialize another CodeMirror instance; this will contain
     // the snippet code, which will be able to be edited as well.
     snippetEditor = CodeMirror($('#snippet').get()[0], {
             value: '// Include the following statement tree \n// somewhere in your code:',
@@ -53,7 +53,7 @@ $(document).ready(function () {
         testResultsView.setValid(challengeAPI.checkIsValid(code)) // Is the code valid?
         testResultsView.setWhitelistResults(challengeAPI.checkWhitelist(code, whitelist)); // Does code pass whitelist test?
         testResultsView.setBlacklistResults(challengeAPI.checkBlacklist(code, blacklist)); // Does code pass blacklist test?
-        testResultsView.setSnippetResults(challengeAPI.checkSnippets(code, snippets)); // Does code contain snippet?
+        testResultsView.setSnippetResults(challengeAPI.checkSnippets(code, snippets)[0]); // Does code contain snippet?
         testResultsView.computeGrade();
     }
 

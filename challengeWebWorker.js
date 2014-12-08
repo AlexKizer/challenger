@@ -1,3 +1,4 @@
+/* The actual web worker */
 importScripts('lib/esprima.js');
 importScripts('lib/challenger.js'); // get the challenger module
 
@@ -12,11 +13,9 @@ onmessage = function (event) {
     } else if (data.action == 'checkBlacklist') {
         response.type = 'blacklist';
         response.value = ch.checkBlacklist(data.codeString, data.blacklist);
-    } else if (data.action == 'checkSnippets') {
+    } else {
         response.type = 'snippets';
         response.value = ch.checkSnippets(data.codeString, data.snippets);
-    } else {
-
     }
     postMessage(response);
 };

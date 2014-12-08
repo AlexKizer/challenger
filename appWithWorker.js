@@ -3,7 +3,7 @@ $(document).ready(function () {
     // back to a default challenge.
     var whitelist = window.challenge ? challenge.whitelist : ['ForStatement', 'IfStatement', 'FunctionDeclaration'],
         blacklist = window.challenge ? challenge.blacklist : ['WhileStatement'],
-        snippet = $('#snippet_code').text().trim(), // get snippet code
+        snippet = $('#snippet_code').text(),//.trim(), // get snippet code
         snippets = [],
         codeEditor,
         snippetEditor,
@@ -29,21 +29,23 @@ $(document).ready(function () {
 
     testResultsView = makeTestView($('#right'), snippetEditor); // Create the test results view.
 
-    challengeAPI = challengeWorker();
+    challengeAPI = challengeWorker(); // Initialize asynchronous testing API.
 
+    // Listen for whitelist results event.
     challengeAPI.on('whitelist', function (data) {
         testResultsView.setWhitelistResults(data);
         testResultsView.computeGrade();
     });
 
+    // Listen for blacklist results event.
     challengeAPI.on('blacklist', function (data) {
-        console.log(data);
         testResultsView.setBlacklistResults(data);
         testResultsView.computeGrade();
     });
 
+    // Listen for snippets results even.t
     challengeAPI.on('snippets', function (data) {
-        testResultsView.setSnippetResults(data);
+        testResultsView.setSnippetResults(data[0]);
         testResultsView.computeGrade();
     });
 
@@ -66,6 +68,7 @@ $(document).ready(function () {
 
     function checkCode(code) {
         testResultsView.setLoading(); // Display loading indicators.
+        // Send code to worker to be tested:
         challengeAPI.checkWhitelist(code, whitelist);
         challengeAPI.checkBlacklist(code, blacklist);
         challengeAPI.checkSnippets(code, snippets);
