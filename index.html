@@ -9,8 +9,8 @@
     <script src="lib/esprima.js"></script>
     <script src="sampleTest_1.js"></script>                 <!-- include another test here, if desired -->
     <script src="testView.js"></script>
-    <!--<script src="challengeWorker.js"></script>          <!-- uncomment for web worker version -->
-    <!--<script src="appWithWorker.js"></script>            <!-- uncomment for web worker version -->
+    <!-- <script src="challengeWorker.js"></script>          <!-- uncomment for web worker version -->
+    <!-- <script src="appWithWorker.js"></script>            <!-- uncomment for web worker version -->
     <script src="lib/challenger.js"></script>
     <script src="app.js"></script>
 
@@ -42,22 +42,16 @@
         </div>
     </div>
 </div>
-<div id="snippet_code_ie" style="display: none;">
-    // A variable declaration within
-    // an if statement
-    if(true || false) {
-    var someVariable = 'someValue';
-    }
-</div>
-<script type="text/x-javascript-snippet" id="snippet_code">
+<!-- IE8 won't let me grab inner text of script tags, so use `pre`. -->
+<pre id="snippet_code" style="display: none;">
 // A variable declaration within
 // an if statement
 if(true || false) {
     var someVariable = 'someValue';
 }
 
-</script>
-<script type="text/x-javascript-snippet" id="snippet_nest">
+</pre>
+<pre id="snippet_nest" style="display: none;">
 // A nest of three while loops.
 while (false) {
     while (false) {
@@ -66,7 +60,6 @@ while (false) {
         }
     }
 }
-
-</script>
+</pre>
 </body>
 </html>

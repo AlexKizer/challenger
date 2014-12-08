@@ -50,22 +50,11 @@ div#tests {
     text-shadow: 0px 1px black;
 }
 
-div#snippet {
-}
-
-/*.test {
-    position: relative;
-    margin-top: 4px;
-}*/
-
 .testlist {
     background-color: white;
-    /*padding-top: 4px;*/
-    /*padding-bottom: 16px;*/
 }
 
 .testgrade {
-    /*float: right;*/
     position: absolute;
     right: 0;
 }
@@ -105,16 +94,11 @@ ul {
     text-align: center;
 }
 
-#whitelist {
-    
-}
-
 .test {
     list-style-type: none;
 }
 
 .test:nth-child(odd) {
-    /*margin-top: 4px;*/
     background-color: #eee;
 }
 
@@ -148,5 +132,4 @@ ul {
 .test-value-loading {
     background-color: #999;
 }
-
 
